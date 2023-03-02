@@ -87,16 +87,16 @@ function renderStyle(sign, percent) {
 
 function syntaxHighlight() {
   var script = document.createElement("script");
-  script.src = "/static/js/hljs.js";
+  script.src = "//cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js";
   document.head.appendChild(script);
 
   var styleLight = document.createElement("link");
   styleLight.rel = "stylesheet";
-  styleLight.href = "/static/css/stackoverflow-light.min.css";
+  styleLight.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/stackoverflow-light.min.css";
 
   var styleDark = document.createElement("link");
   styleDark.rel = "stylesheet";
-  styleDark.href = "/static/css/stackoverflow-dark.min.css";
+  styleDark.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/stackoverflow-dark.min.css";
 
   if (document.querySelector("body").classList.contains("theme-dark")) {
     document.head.appendChild(styleDark);
@@ -106,8 +106,8 @@ function syntaxHighlight() {
 
   script.onload = function () {
     console.log("hljs.js loaded");
-    document.querySelectorAll("pre code").forEach(function (block) {
-      hljs.highlightBlock(block);
+    document.querySelectorAll('pre code').forEach((el) => {
+      hljs.highlightElement(el);
     });
   };
 }
